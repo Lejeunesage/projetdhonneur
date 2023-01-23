@@ -1,11 +1,3 @@
-<?php
-
-use App\Controllers\WishlistController;
-
-$wishAction = WishlistController::wishAction();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,13 +28,6 @@ $wishAction = WishlistController::wishAction();
    <?php
 
       $grand_total = 0;
-      $showWishlist = WishlistController::returnWishlist();
-
-      // echo "<pre>";
-      // print_r($showWishlist);
-      // echo "<pre>";
-      // exit();
-   
       if(isset($showWishlist)  && count($showWishlist) > 0){
         foreach ($showWishlist as $key => $value) {
          

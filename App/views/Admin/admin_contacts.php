@@ -1,19 +1,3 @@
-<?php
-
-@include 'config.php';
-
-session_start();
-
-if ($_SESSION['role'] !== 'admin' ) {
-   header('Location:/');
-}
-
-
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

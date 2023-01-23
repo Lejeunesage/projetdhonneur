@@ -30,9 +30,9 @@ if (session_status() == PHP_SESSION_NONE) {
       <div class="profile">
          <img src="./ressources/pictures_users/<?= $_SESSION['user_image']; ?>" alt="">
          <p><?= $_SESSION['user_name']; ?></p>
-         <a href="/" class="btn">Accueil</a>
+         <a href="/" class="option-btn">Accueil</a>
          <a href="/update_profile" class="btn">Mise À Jours/Profile</a>
-         <a href="/logout" class="delete-btn option-btn">Se déconnecter</a>
+         <a href="/logout" class="delete-btn ">Se déconnecter</a>
       </div>
 
    </div>

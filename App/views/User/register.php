@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,23 +15,6 @@
 </head>
 <body>
 
-<?php
-
-if(isset($message)){
-   foreach($message as $message){
-      echo '
-      <div class="message">
-         <span>'.$message.'</span>
-
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-
-      </div>
-      ';
-   }
-}
-
-?>
-   
 <section class="form-container">
 
    <form action="/register/getting" enctype="multipart/form-data" method="POST">

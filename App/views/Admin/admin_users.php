@@ -28,7 +28,7 @@
         foreach ($fetch_users as $key => $value) {
       ?>
       <div class="box">
-         <img src="./ressources/uploaded_img/<?= $value['image']; ?>" alt="">
+         <img src="./ressources/pictures_users/<?= $value['image']; ?>" alt="">
          <p> Id utilisateur : <span><?= $value['id']; ?></span></p>
          <p> Nom d'utilisateur : <span><?= $value['name']; ?></span></p>
          <p> Email : <span><?= $value['email']; ?></span></p>
@@ -39,10 +39,7 @@
       }
       ?>
    </div>
-   <?php
-   // A mettre en attribut dans une balise style .
-   // if($value['user_type'] == $_SESSION['role']){ echo 'display:none'; }; 
-   ?>
+  
 
 </section>
 

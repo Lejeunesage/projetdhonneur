@@ -1,13 +1,3 @@
-<?php
-use App\Controllers\CardController;
-use App\Controllers\ProductController;
-// session_start();
-
-$add = ProductController::add();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -43,14 +33,11 @@ $add = ProductController::add();
    <div class="box-container">
 
    <?php
-   $select_products = ProductController::getAllProduct();
-      
       if(count($select_products) > 0){
          foreach ($select_products as $key => $value) {
-            # code...
-         
+
    ?>
-   <form action="product/add" class="box" method="POST">
+   <form action="" class="box" method="POST">
       <div class="price"><span><?= $value['price']; ?></span>€</div>
       <a href="/views?pid=<?= $value['id']; ?>" class="fas fa-eye"></a>
       <img src="./ressources/products_images/<?= $value['image']; ?>" alt="">

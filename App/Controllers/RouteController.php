@@ -9,7 +9,12 @@ class RouteController extends \Core\Controller {
  
     public function homeAction() {
         
-        View::render("home.php");
+        session_start();
+        $fetch_products = ProductController::getProduct();
+        
+        View::render("home.php", [
+            'fetch_products' => $fetch_products,
+        ]);
         
     }
 
@@ -20,8 +25,13 @@ class RouteController extends \Core\Controller {
     }
 
     public function categoryAction() {
+        $category_name = $_GET['category'];
+        CategoryController::add();
+        $select_products = CategoryController::getCategory($category_name);
         
-        View::render("category.php");
+        View::render("category.php", [
+            'select_products' => $select_products,
+        ]);
         
     }
 
@@ -31,18 +41,29 @@ class RouteController extends \Core\Controller {
     }
 
     public function checkoutAction() {
+        CheckoutController::checkoutAction();
+        $select_cart_items = CardController::select_cart();
     
-        View::render("checkout.php");
+        View::render("checkout.php", [
+            'select_cart_items' => $select_cart_items,
+        ]);
     }
 
     public function ordersAction() {
+        session_start();
+        $fetch_orders = OrdersController::getOrders();
     
-        View::render("orders.php");
+        View::render("orders.php", [
+            'fetch_orders' => $fetch_orders,
+        ]);
     }
 
     public function shopAction() {
-    
-        View::render("shop.php");
+        ProductController::add();
+        $select_products = ProductController::getAllProduct();
+        View::render("shop.php", [
+            'select_products' => $select_products,
+        ]);
     }
 
 
@@ -52,8 +73,12 @@ class RouteController extends \Core\Controller {
     }
 
     public function cardAction() {
+        CardController::cardAction();
+        $select_cart = CardController::select_cart();
     
-        View::render("card.php");
+        View::render("card.php", [
+            'select_cart'=> $select_cart,
+        ]);
     }
     
     public function registerAction() {
@@ -72,7 +97,11 @@ class RouteController extends \Core\Controller {
     
     public function searchAction() {
     
-        View::render("search_page.php");
+        ProductController::add();
+        $fetch_products = ProductController::searchProduct();
+        View::render("search_page.php", [
+            'fetch_products' => $fetch_products,
+        ]);
     }
     
     public function updateAction() {
@@ -81,13 +110,22 @@ class RouteController extends \Core\Controller {
     }
 
     public function viewsAction() {
+        ProductController::add();
+        $pid = $_GET['pid'];
+        $select_products = ProductController::getOneProduct($pid);
     
-        View::render("view_page.php");
+        View::render("view_page.php", [
+            'select_products' => $select_products,
+        ]);
     }
 
     public function wishlistAction() {
+        WishlistController::wishAction();
+        $showWishlist = WishlistController::returnWishlist();
     
-        View::render("wishlist.php");
+        View::render("wishlist.php", [
+            'showWishlist' => $showWishlist,
+        ]);
     }
 
   

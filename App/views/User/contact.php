@@ -1,11 +1,3 @@
-<?php
-use App\Controllers\ContactController;
-
-// $sendAction = ContactController::sendMessage();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

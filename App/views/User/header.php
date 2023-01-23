@@ -1,5 +1,4 @@
 <?php
-  use App\Controllers\Connexion;
   use App\Controllers\CardController;
   use App\Controllers\WishlistController;
   

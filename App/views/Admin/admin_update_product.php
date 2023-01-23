@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if ($_SESSION['role'] !== 'admin' ) {
-   header('Location:/');
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,8 +19,6 @@ if ($_SESSION['role'] !== 'admin' ) {
 <section class="update-product">
 
    <h1 class="title"> Mettre à jour le produit</h1>  
-   
-   
 
    <form action=" AdminUpdateProduct/updateProducts" method="post" enctype="multipart/form-data">
       <input type="hidden" name="old_image" value="<?= $fetch_product['image']; ?>">

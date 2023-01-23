@@ -83,7 +83,7 @@ class ProductController {
             if($check_cart_numbers->rowCount() > 0){
                 $message[] = 'Déjà ajouté au panier !';
 
-                header('location:/shop');
+            //    do
             }else{
                 $addToWishlist =  new  WishlistModel();
                 $check_wishlist_numbers = $addToWishlist->check_wishlist_numbers($p_name, $user_id);
@@ -99,7 +99,7 @@ class ProductController {
                 $insert = $addToCard->insertCard($user_id, $pid, $p_name, $p_price, $p_qty, $p_image);
                 $message[] = 'Un produit ajouté au panier!';
 
-                header('location:/shop');
+                
             }
         }
 
@@ -138,7 +138,7 @@ class ProductController {
                 $insert = $addToWishlist->insertWishlist($user_id, $pid, $p_name, $p_price, $p_qty, $p_image);
                 $message[] = 'Ajouté à la liste de souhaits !';
             }
-            header('location:/shop');
+           
         }
         
     }

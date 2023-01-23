@@ -1,8 +1,3 @@
-<?php
-use App\Controllers\OrdersController;
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,8 +25,6 @@ use App\Controllers\OrdersController;
    <div class="box-container">
 
    <?php
-   $fetch_orders = OrdersController::getOrders();
-      
    if (isset($fetch_orders) && count($fetch_orders) > 0) {
    foreach ($fetch_orders as $key => $value)  {   
    ?>
@@ -56,13 +49,6 @@ use App\Controllers\OrdersController;
    </div>
 
 </section>
-
-
-
-
-
-
-
 
 
 

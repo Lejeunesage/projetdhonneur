@@ -1,11 +1,3 @@
-<?php
-use App\Controllers\CheckoutController;
-use App\Controllers\CardController;
-
-$checkoutAction = CheckoutController::checkoutAction();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,7 +22,7 @@ $checkoutAction = CheckoutController::checkoutAction();
 
    <?php
       $cart_grand_total = 0;
-      $select_cart_items = CardController::select_cart();
+     
       if (isset($select_cart_items) && count($select_cart_items)) {
          
             foreach ($select_cart_items as $key => $value) {

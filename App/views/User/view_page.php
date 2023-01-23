@@ -1,11 +1,3 @@
-<?php
-use App\Controllers\ProductController;
-
-$addAction = ProductController::add();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,12 +20,7 @@ $addAction = ProductController::add();
 <section class="quick-view">
 
    <h1 class="title">Vue rapide</h1>
-  
-
-   <?php
-      $pid = $_GET['pid'];
-      $select_products = ProductController::getOneProduct($pid);
-   ?>
+ 
    <form action="" class="box" method="POST">
       <div class="price"><span><?= $select_products['price']; ?></span>€</div>
       <img src="./ressources/products_images/<?= $select_products['image']; ?>" alt="">

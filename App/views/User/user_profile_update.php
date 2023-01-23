@@ -1,14 +1,3 @@
-<?php
-
-use App\Controllers\UpdateController;
-// $updateProfile = UpdateController::updateProfile();
-
-
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

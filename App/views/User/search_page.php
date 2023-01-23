@@ -1,12 +1,3 @@
-<?php
-use App\Controllers\ProductController;
-
-$addAction = ProductController::add();
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,7 +37,7 @@ $addAction = ProductController::add();
    <div class="box-container">
 
    <?php
-     $fetch_products = ProductController::searchProduct();
+    
 
      if (isset($fetch_products) && count($fetch_products) > 0) {
   

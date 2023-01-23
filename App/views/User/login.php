@@ -1,47 +1,3 @@
-<?php
-
-@include 'config.php';
-
-session_start();
-
-if(isset($_POST['submit'])){
-
-   $email = $_POST['email'];
-   $email = htmlspecialchars($email);
-   $pass = md5($_POST['pass']);
-   $pass = htmlspecialchars($pass);
-
-   $sql = "SELECT * FROM `users` WHERE email = ? AND password = ?";
-   $stmt = $conn->prepare($sql);
-   $stmt->execute([$email, $pass]);
-   $rowCount = $stmt->rowCount();  
-
-   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-   if($rowCount > 0){
-
-      if($row['user_type'] == 'admin'){
-
-         $_SESSION['admin_id'] = $row['id'];
-         header('location:/admin');
-
-      }elseif($row['user_type'] == 'user'){
-
-         $_SESSION['user_id'] = $row['id'];
-         header('location:/');
-
-      }else{
-         $message[] = 'Aucun utilisateur trouvé !';
-      }
-
-   }else{
-      $message[] = 'Email ou mot de passe incorrect!';
-   }
-
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -59,23 +15,6 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
-<?php
-
-if(isset($message)){
-   foreach($message as $message){
-      echo '
-      <div class="message">
-         <span>'.$message.'</span>
-
-         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-
-      </div>
-      ';
-   }
-}
-
-?>
-   
 <section class="form-container">
 
    <form action="/login/macth" method="POST">

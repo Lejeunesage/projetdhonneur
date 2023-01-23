@@ -1,13 +1,3 @@
-<?php
-
-use App\Controllers\ProductController;
-use App\Controllers\CardController;
-session_start();
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -142,8 +132,6 @@ session_start();
    <div class="box-container">
 
    <?php
-      $fetch_products = ProductController::getProduct();
-
       if ( isset($fetch_products) && count($fetch_products) > 0) {
          foreach ($fetch_products as $key => $value) {
             
@@ -173,10 +161,6 @@ session_start();
    </div>
 
 </section>
-
-
-
-
 
 
 

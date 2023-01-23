@@ -1,16 +1,3 @@
-<?php
-use App\Controllers\ProductController;
-use App\Controllers\AdminProductsController;
-session_start();
-
-if ($_SESSION['role'] !== 'admin' ) {
-   header('Location:/');
-}
-AdminProductsController::deleteProduct();
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,9 +50,6 @@ AdminProductsController::deleteProduct();
    <div class="box-container">
 
    <?php
-      $select_products = ProductController::getAllProduct();
-
-
       if(count($select_products) > 0){
          foreach ($select_products as $key => $value) {
          
@@ -91,16 +75,6 @@ AdminProductsController::deleteProduct();
    </div>
 
 </section>
-
-<!-- C'est un fruit très riches que tu peux prendre après avoir déguster un bon hamburger! -->
-
-
-
-
-
-
-
-
 
 
 

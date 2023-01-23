@@ -8,14 +8,46 @@ use \Core\View;
 class AdminRouteController extends \Core\Controller {
  
     public function admin_homeAction() {
+        session_start();
+
+        if ($_SESSION['role'] !== 'admin' ) {
+        header('Location:/');
+        }
+        $fetch_pendings = AdminHomeController::selectPendings();
+        $fetch_completed = AdminHomeController::selectCompleted();
+        $number_of_orders = AdminHomeController::numberOfOrders();
+        $number_of_products = AdminHomeController::numberOfProducts();
+        $number_of_users = AdminHomeController::numberOfUsers();
+        $number_of_admins = AdminHomeController::numberOfAdmins();
+        $number_of_accounts = AdminHomeController::numberOfAccounts();
+        $number_of_messages = AdminHomeController::numberOfMessages();
         
-        View::render("admin_page.php");
+        View::render("admin_page.php",  [
+            'fetch_pendings'=>$fetch_pendings,
+            'fetch_completed'=>$fetch_completed,
+            'number_of_orders'=>$number_of_orders,
+            'number_of_products'=>$number_of_products,
+            'number_of_users'=>$number_of_users,
+            'number_of_admins'=>$number_of_admins,
+            'number_of_accounts'=>$number_of_accounts,
+            'number_of_messages'=>$number_of_messages,
+        ]);
         
     }
 
     public function admin_productsAction() {
+        session_start();
+
+        if ($_SESSION['role'] !== 'admin' ) {
+        header('Location:/');
+        }
+
+        AdminProductsController::deleteProduct();
+        $select_products = ProductController::getAllProduct();
         
-        View::render("admin_products.php");
+        View::render("admin_products.php", [
+            'select_products'=>$select_products,
+        ]);
         
     }
 
@@ -35,6 +67,12 @@ class AdminRouteController extends \Core\Controller {
     }
 
     public function admin_contactsAction() {
+        session_start();
+
+        if ($_SESSION['role'] !== 'admin' ) {
+        header('Location:/');
+        }
+
         AdminMessageController::deleteMessage();
         $fetch_message = AdminMessageController::selectAllMessage();
     
@@ -42,14 +80,26 @@ class AdminRouteController extends \Core\Controller {
     }
 
     public function update_profileAction() {
+        session_start();
+
+        if ($_SESSION['role'] !== 'admin' ) {
+        header('Location:/');
+        }
     
         View::render("admin_update_profile.php");
     }
 
     public function update_productAction() {
+        session_start();
+
+        if ($_SESSION['role'] !== 'admin' ) {
+        header('Location:/');
+        }
     
         $fetch_product = AdminUpdateProductController::getOneProduct();
-        View::render("admin_update_product.php",["fetch_product"=>$fetch_product]);
+        View::render("admin_update_product.php",[
+            "fetch_product"=>$fetch_product,
+        ]);
     }
 
     public function admin_usersAction() {

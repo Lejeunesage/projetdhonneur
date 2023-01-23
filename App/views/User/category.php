@@ -1,11 +1,3 @@
-<?php
-use App\Controllers\CategoryController;
-// session_start();
-
-$addAction = CategoryController::add();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,8 +33,6 @@ $addAction = CategoryController::add();
    <div class="box-container">
 
    <?php
-      $category_name = $_GET['category'];
-      $select_products = CategoryController::getCategory($category_name);
       if(isset($select_products)){
          foreach ($select_products as $key => $value) {
    ?>

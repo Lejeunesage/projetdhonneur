@@ -1,10 +1,3 @@
-<?php
-use   App\Controllers\CardController;
-
-$cardAction = CardController::cardAction();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,8 +25,6 @@ $cardAction = CardController::cardAction();
 
    <?php
       $grand_total = 0;
-      $select_cart = CardController::select_cart();
-
       if(isset($select_cart) && count($select_cart) > 0){
          foreach ($select_cart as $key => $value) {
             # code...
